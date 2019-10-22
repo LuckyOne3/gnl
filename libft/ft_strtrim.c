@@ -3,59 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppepperm <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amyrta <amyrta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 12:58:37 by ppepperm          #+#    #+#             */
-/*   Updated: 2019/09/13 17:59:18 by ppepperm         ###   ########.fr       */
+/*   Created: 2019/09/07 19:56:01 by amyrta            #+#    #+#             */
+/*   Updated: 2019/09/19 15:59:06 by amyrta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_kostil(void)
+static int		ft_strtrim_white(char c)
 {
-	char *tmp;
-
-	tmp = (char*)malloc(sizeof(char));
-	*tmp = 0;
-	return (tmp);
+	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-static char	get_ij(size_t *i, size_t *j, char const *s)
-{
-	if (!ft_strlen(s))
-		return (0);
-	*j = ft_strlen(s) - 1;
-	while (s[*i] == ' ' || s[*i] == '\n' || s[*i] == '\t')
-		(*i)++;
-	if (*i >= *j)
-		return (0);
-	while (s[*j] == ' ' || s[*j] == '\n' || s[*j] == '\t')
-		(*j)--;
-	return ('a');
-}
-
-char		*ft_strtrim(char const *s)
+static char		*ft_strtrim_b(char const *s, size_t start, size_t end)
 {
 	size_t	i;
-	size_t	j;
-	char	*tmp;
-	char	*ret;
+	char	*g;
 
+	if (!(g = (char*)malloc(end - start + 1)))
+		return (NULL);
 	i = 0;
-	j = 0;
+	while (start < end)
+		g[i++] = s[start++];
+	g[i] = '\0';
+	return (g);
+}
+
+char			*ft_strtrim(char const *s)
+{
+	size_t	start;
+	size_t	end;
+
 	if (!s)
 		return (NULL);
-	if (!get_ij(&i, &j, s))
-		return (ft_kostil());
-	tmp = (char*)malloc(sizeof(char) * (j - i + 2));
-	if (!(ret = tmp))
-		return (NULL);
-	while (i <= j)
+	end = ft_strlen(s);
+	start = 0;
+	if (end > 0)
 	{
-		*tmp = s[i++];
-		tmp++;
+		while (s[start] && ft_strtrim_white(s[start]))
+			start++;
+		if (s[start] == '\0')
+			start = end;
+		else
+		{
+			while (--end > 0 && ft_strtrim_white(s[end]))
+				(void)0;
+			end++;
+		}
 	}
-	*tmp = '\0';
-	return (ret);
+	return (ft_strtrim_b(s, start, end));
 }

@@ -3,63 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppepperm <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amyrta <amyrta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 13:24:16 by ppepperm          #+#    #+#             */
-/*   Updated: 2019/09/13 18:20:24 by ppepperm         ###   ########.fr       */
+/*   Created: 2019/09/07 19:56:01 by amyrta            #+#    #+#             */
+/*   Updated: 2019/09/19 15:58:22 by amyrta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_puttnbr(int nb, char *dst)
+static	int			count_string(int n)
 {
-	if (nb / 10 == 0)
-	{
-		*dst = nb % 10 + '0';
-	}
-	else
-	{
-		ft_puttnbr(nb / 10, dst + 1);
-		*dst = nb % 10 + '0';
-	}
-}
+	int count;
 
-static void	ft_marginalint(char *dst)
-{
-	char *src;
-
-	src = "-2147483648";
-	while (*src)
-	{
-		*dst = *src;
-		dst++;
-		src++;
-	}
-}
-
-char		*ft_itoa(int n)
-{
-	char *tmp;
-	char *ret;
-
-	tmp = (char*)malloc(sizeof(char) * 12);
-	if (!tmp)
-		return (NULL);
-	ft_bzero(tmp, 12);
-	ret = tmp;
+	count = 0;
+	if (n == 0)
+		return (2);
 	if (n == -2147483648)
 	{
-		ft_marginalint(tmp);
-		return (ret);
+		count = count + 2;
+		n = 147483648;
 	}
-	if (n < 0)
+	else if (n < 0)
 	{
-		n = n * -1;
-		*tmp = '-';
-		tmp++;
+		count++;
+		n = -n;
 	}
-	ft_puttnbr(n, tmp);
-	ft_strrev(tmp);
-	return (ret);
+	while (n > 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	if (n <= 0)
+		count++;
+	return (count);
+}
+
+char				*ft_itoa(int n)
+{
+	int				i;
+	char			*tab;
+
+	i = count_string(n) - 1;
+	if (!(tab = (char*)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	if (n < 0)
+		tab[0] = '-';
+	if (n == -2147483648)
+	{
+		tab[1] = '2';
+		n = 147483648;
+	}
+	else if (n < 0)
+		n = -n;
+	tab[i--] = '\0';
+	if (n == 0)
+		tab[i] = '0';
+	while (n != 0)
+	{
+		tab[i--] = (n % 10) + '0';
+		n = n / 10;
+	}
+	return (tab);
 }

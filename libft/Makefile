@@ -3,26 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ppepperm <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: amyrta <amyrta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/09/04 15:42:31 by ppepperm          #+#    #+#              #
-#    Updated: 2019/09/15 12:13:46 by ppepperm         ###   ########.fr        #
+#    Created: 2019/08/12 12:15:49 by amyrta            #+#    #+#              #
+#    Updated: 2019/09/19 15:38:51 by amyrta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-HEADERS = includes
+HEADERS = libft.h
 
 all: $(NAME)
 
-$(NAME):ft_toupper.o ft_tolower.o ft_strtrim.o ft_strsub.o ft_strstr.o ft_strsplit.o ft_strrchr.o ft_strnstr.o ft_strnew.o ft_strnequ.o ft_strncpy.o ft_strncmp.o ft_strncat.o ft_strmapi.o ft_strmap.o ft_strlen.o ft_strlcat.o ft_strjoin.o ft_striteri.o ft_striter.o ft_strequ.o ft_strdup.o ft_strdel.o ft_strcpy.o ft_strcmp.o ft_strclr.o ft_strchr.o ft_strcat.o ft_putstr_fd.o ft_putstr.o ft_putnbr.o ft_putnbr_fd.o ft_putendl_fd.o ft_putendl.o ft_putchar_fd.o ft_putchar.o ft_memset.o ft_memmove.o ft_memdel.o ft_memcpy.o ft_memcmp.o ft_memchr.o ft_memccpy.o ft_memalloc.o ft_lstnew.o ft_lstmap.o ft_lstiter.o ft_lstdelone.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_itoa.o ft_isdigit.o ft_isprint.o ft_isascii.o ft_isalpha.o ft_isalnum.o ft_bzero.o ft_atoi.o ft_strrev.o ft_lstpushback.o
-	ar -rc $(NAME) ft_toupper.o ft_tolower.o ft_strtrim.o ft_strsub.o ft_strstr.o ft_strsplit.o ft_strrchr.o ft_strnstr.o ft_strnew.o ft_strnequ.o ft_strncpy.o ft_strncmp.o ft_strncat.o ft_strmapi.o ft_strmap.o ft_strlen.o ft_strlcat.o ft_strjoin.o ft_striteri.o ft_striter.o ft_strequ.o ft_strdup.o ft_strdel.o ft_strcpy.o ft_strcmp.o ft_strclr.o ft_strchr.o ft_strcat.o ft_putstr_fd.o ft_putstr.o ft_putnbr.o ft_putnbr_fd.o ft_putendl_fd.o ft_putendl.o ft_putchar_fd.o ft_putchar.o ft_memset.o ft_memmove.o ft_memdel.o ft_memcpy.o ft_memcmp.o ft_memchr.o ft_memccpy.o ft_memalloc.o ft_lstnew.o ft_lstmap.o ft_lstiter.o ft_lstdelone.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_itoa.o ft_isdigit.o ft_isprint.o ft_isascii.o ft_isalpha.o ft_isalnum.o ft_bzero.o ft_atoi.o ft_strrev.o ft_lstpushback.o
-
-ft_lstpushback.o: ft_lstpushback.c
-	gcc -c -Wall -Werror -Wextra ft_lstpushback.c -I $(HEADERS)
-
-ft_strrev.o: ft_strrev.c
-	gcc -c -Wall -Werror -Wextra ft_strrev.c -I $(HEADERS)
+$(NAME):ft_toupper.o ft_tolower.o ft_strtrim.o ft_strsub.o ft_strstr.o ft_strsplit.o ft_strrchr.o ft_strnstr.o ft_strnew.o ft_strnequ.o ft_strncpy.o ft_strncmp.o ft_strncat.o ft_strmapi.o ft_strmap.o ft_strlen.o ft_strlcat.o ft_strjoin.o ft_striteri.o ft_striter.o ft_strequ.o ft_strdup.o ft_strdel.o ft_strcpy.o ft_strcmp.o ft_strclr.o ft_strchr.o ft_strcat.o ft_putstr_fd.o ft_putstr.o ft_putnbr.o ft_putnbr_fd.o ft_putendl_fd.o ft_putendl.o ft_putchar_fd.o ft_putchar.o ft_memset.o ft_memmove.o ft_memdel.o ft_memcpy.o ft_memcmp.o ft_memchr.o ft_memccpy.o ft_memalloc.o  ft_itoa.o ft_isdigit.o ft_isprint.o ft_isascii.o ft_isalpha.o ft_isalnum.o ft_bzero.o ft_atoi.o
+	ar -rc $(NAME) ft_toupper.o ft_tolower.o ft_strtrim.o ft_strsub.o ft_strstr.o ft_strsplit.o ft_strrchr.o ft_strnstr.o ft_strnew.o ft_strnequ.o ft_strncpy.o ft_strncmp.o ft_strncat.o ft_strmapi.o ft_strmap.o ft_strlen.o ft_strlcat.o ft_strjoin.o ft_striteri.o ft_striter.o ft_strequ.o ft_strdup.o ft_strdel.o ft_strcpy.o ft_strcmp.o ft_strclr.o ft_strchr.o ft_strcat.o ft_putstr_fd.o ft_putstr.o ft_putnbr.o ft_putnbr_fd.o ft_putendl_fd.o ft_putendl.o ft_putchar_fd.o ft_putchar.o ft_memset.o ft_memmove.o ft_memdel.o ft_memcpy.o ft_memcmp.o ft_memchr.o ft_memccpy.o ft_memalloc.o  ft_itoa.o ft_isdigit.o ft_isprint.o ft_isascii.o ft_isalpha.o ft_isalnum.o ft_bzero.o ft_atoi.o
 
 ft_atoi.o: ft_atoi.c
 	gcc -c -Wall -Werror -Wextra ft_atoi.c -I $(HEADERS)
@@ -47,24 +41,6 @@ ft_isdigit.o: ft_isdigit.c
 
 ft_itoa.o: ft_itoa.c
 	gcc -c -Wall -Werror -Wextra ft_itoa.c -I $(HEADERS)
-
-ft_lstadd.o: ft_lstadd.c
-	gcc -c -Wall -Werror -Wextra ft_lstadd.c -I $(HEADERS)
-
-ft_lstdel.o: ft_lstdel.c
-	gcc -c -Wall -Werror -Wextra ft_lstdel.c -I $(HEADERS)
-
-ft_lstdelone.o: ft_lstdelone.c
-	gcc -c -Wall -Werror -Wextra ft_lstdelone.c -I $(HEADERS)
-
-ft_lstiter.o: ft_lstiter.c
-	gcc -c -Wall -Werror -Wextra ft_lstiter.c -I $(HEADERS)
-
-ft_lstmap.o: ft_lstmap.c
-	gcc -c -Wall -Werror -Wextra ft_lstmap.c -I $(HEADERS)
-
-ft_lstnew.o: ft_lstnew.c
-	gcc -c -Wall -Werror -Wextra ft_lstnew.c -I $(HEADERS)
 
 ft_memalloc.o: ft_memalloc.c
 	gcc -c -Wall -Werror -Wextra ft_memalloc.c -I $(HEADERS)
@@ -195,11 +171,11 @@ ft_strtrim.o: ft_strtrim.c
 ft_tolower.o: ft_tolower.c
 	 gcc -c -Wall -Werror -Wextra ft_tolower.c -I $(HEADERS)
 
-ft_toupper.o: ft_toupper.c 
+ft_toupper.o: ft_toupper.c
 	 gcc -c -Wall -Werror -Wextra ft_toupper.c -I $(HEADERS)
 
 clean:
-	rm -f ft_toupper.o ft_tolower.o ft_strtrim.o ft_strsub.o ft_strstr.o ft_strsplit.o ft_strrchr.o ft_strnstr.o ft_strnew.o ft_strnequ.o ft_strncpy.o ft_strncmp.o ft_strncat.o ft_strmapi.o ft_strmap.o ft_strlen.o ft_strlcat.o ft_strjoin.o ft_striteri.o ft_striter.o ft_strequ.o ft_strdup.o ft_strdel.o ft_strcpy.o ft_strcmp.o ft_strclr.o ft_strchr.o ft_strcat.o ft_putstr_fd.o ft_putstr.o ft_putnbr.o ft_putnbr_fd.o ft_putendl_fd.o ft_putendl.o ft_putchar_fd.o ft_putchar.o ft_memset.o ft_memmove.o ft_memdel.o ft_memcpy.o ft_memcmp.o ft_memchr.o ft_memccpy.o ft_memalloc.o ft_lstnew.o ft_lstmap.o ft_lstiter.o ft_lstdelone.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_itoa.o ft_isdigit.o ft_isprint.o ft_isascii.o ft_isalpha.o ft_isalnum.o ft_bzero.o ft_atoi.o ft_strrev.o ft_lstpushback.o
+	rm -f ft_toupper.o ft_tolower.o ft_strtrim.o ft_strsub.o ft_strstr.o ft_strsplit.o ft_strrchr.o ft_strnstr.o ft_strnew.o ft_strnequ.o ft_strncpy.o ft_strncmp.o ft_strncat.o ft_strmapi.o ft_strmap.o ft_strlen.o ft_strlcat.o ft_strjoin.o ft_striteri.o ft_striter.o ft_strequ.o ft_strdup.o ft_strdel.o ft_strcpy.o ft_strcmp.o ft_strclr.o ft_strchr.o ft_strcat.o ft_putstr_fd.o ft_putstr.o ft_putnbr.o ft_putnbr_fd.o ft_putendl_fd.o ft_putendl.o ft_putchar_fd.o ft_putchar.o ft_memset.o ft_memmove.o ft_memdel.o ft_memcpy.o ft_memcmp.o ft_memchr.o ft_memccpy.o ft_memalloc.o ft_itoa.o ft_isdigit.o ft_isprint.o ft_isascii.o ft_isalpha.o ft_isalnum.o ft_bzero.o ft_atoi.o
 
 fclean: clean
 	rm -f $(NAME)
