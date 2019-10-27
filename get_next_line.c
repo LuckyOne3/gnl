@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amyrta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amyrta <amyrta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 14:46:08 by amyrta            #+#    #+#             */
-/*   Updated: 2019/10/22 14:46:13 by amyrta           ###   ########.fr       */
+/*   Created: 2019/10/27 12:46:44 by amyrta            #+#    #+#             */
+/*   Updated: 2019/10/27 14:27:19 by amyrta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 static int	ft_read(char **descr, const int fd)
 {
